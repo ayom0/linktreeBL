@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boothlab Link Page</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome buat ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Font Unbounded -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+
+  <!-- Top Icons -->
+<div class="top-icons">
+  <!-- Register Button -->
+  <button id="registerBtn" class="register-btn">Register</button>
+  
+  <!-- Share Icon -->
+  <a href="#"><i class="fa-solid fa-share-from-square"></i></a>
+</div>
+
+
+
+
+
+    <!-- 1. Welcome -->
+    <div class="header">
+      <img src="assets/logo.jpg" alt="Boothlab Logo" class="logo">
+      <h1>Boothlab.id</h1>
+      <p class="tagline">No. 1 Self Service Photobooth Solution</p>
+    </div>
+
+    <!-- 2. Sosmed -->
+    <div class="socials">
+      <a href="https://youtube.com/" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+      <a href="https://tiktok.com/" target="_blank" class="tt"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/628123456789" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- 3. Pengenalan -->
+    <p class="intro">
+      Boothlab is a desktop and web-based middleware platform designed to automate the operations of self-service photobooths.
+    </p>
+
+    <!-- 4. Package Cards -->
+    <div class="packages">
+      <a href="https://boothlab.id/pricing" class="card">
+        <h3>Boothlab Photo</h3>
+      </a>
+      <a href="https://boothlab.id/pricing" class="card">
+        <h3>Boothlab Paywall</h3>
+      </a>
+      <a href="https://boothlab.id/pricing" class="card">
+        <h3>All in One Photo Solution</h3>
+      </a>
+    </div>
+
+    <!-- 5. Video -->
+    <div class="video">
+      <iframe 
+        width="100%" 
+        height="215" 
+        src="https://www.youtube.com/embed/VALfOhG_EBs" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+
+    <!-- 6. Profile Document -->
+    <a href="https://drive.google.com/your-doc-link" class="btn">📄 Profile Document</a>
+
+    <!-- 7. WhatsApp Admin -->
+    <a href="https://wa.me/6289516042702?text=Halo%20Admin%20Boothlab" class="btn">💬 WhatsApp Admin </a>
+
+    <!-- 8. Official Website -->
+  <a href="https://boothlab.id" class="btn-website">🌐 Boothlab Official Website</a>
+
+  <!-- 9. Footer Links -->
+  <div class="footer-links">
+    <a href="#">Cookie Preferences</a>
+    <span>·</span>
+    <a href="#">Report</a>
+    <span>·</span>
+    <a href="#">Privacy</a>
+  </div>
+
+  </main>
+  <script>
+  const modal = document.getElementById("registerModal");
+  const btn = document.getElementById("registerBtn");
+  const closeBtn = document.querySelector(".modal .close");
+
+  btn.onclick = () => {
+    modal.style.display = "flex";
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+
+
+
+  //animasi top icons
+  let lastScrollY = window.scrollY;
+  const topIcons = document.querySelector(".top-icons");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+      // Scroll ke bawah → sembunyikan
+      topIcons.classList.add("hide");
+      topIcons.classList.remove("show");
+    } else {
+      // Scroll ke atas → munculkan
+      topIcons.classList.add("show");
+      topIcons.classList.remove("hide");
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+
+
+
+
+</body>
+</html>

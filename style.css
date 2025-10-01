@@ -1,0 +1,251 @@
+body {
+  font-family: 'Unbounded', sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 20px;
+  max-width: 480px; /* tetap compact */
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 🔹 Top Icons sticky */
+.top-icons {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: white;
+  padding: 10px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.top-icons.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.top-icons.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.top-icons a {
+  width: 40px;
+  height: 40px;
+  background: #f9fafb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+.top-icons a:hover {
+  background: #e5e7eb;
+  transform: scale(1.1);
+}
+
+/* Register Button */
+.register-btn {
+  padding: 8px 16px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.register-btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+
+
+/* Header */
+.logo {
+  max-width: 90px;
+  width: 25vw;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+h1 {
+  margin: 8px 0 4px;
+  font-size: clamp(20px, 5vw, 28px);
+}
+.tagline {
+  font-size: clamp(12px, 3vw, 14px);
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Sosmed */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.socials a {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  transition: transform 0.2s;
+}
+.socials a:hover {
+  transform: scale(1.1);
+}
+.socials .yt { background: #ff0000; }
+.socials .tt { background: #000; }
+.socials .wa { background: #25D366; }
+
+/* Intro */
+.intro {
+  font-size: clamp(13px, 3vw, 15px);
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Packages */
+.packages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.card {
+  padding: clamp(12px, 3vw, 16px);
+  border-radius: 12px;
+  background: #f9fafb;
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  font-size: clamp(14px, 3.5vw, 16px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* Video responsif */
+.video {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+/* Buttons umum */
+.btn {
+  display: block;
+  padding: 14px;
+  border-radius: 10px;
+  margin: 10px 0;
+  background: #f3f4f6;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: clamp(14px, 3.5vw, 16px);
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #e5e7eb;
+}
+
+/* 🔹 Official Website Button */
+.btn-website {
+  display: inline-block; /* biar ukurannya sesuai isi */
+  background: #ff4810 !important;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(14px, 3.5vw, 16px);
+  padding: 12px 28px;  /* bisa dikurangi lagi kalau mau lebih kecil */
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: all 0.2s ease;
+  margin: 40px auto;  /* tetap center */
+  text-align: center;
+  width: fit-content; /* panjang otomatis sesuai teks */
+  min-width: 180px;   /* kasih batas minimum biar rapi */
+}
+
+.btn-website:hover {
+  background: #f3f4f6;
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+}
+
+
+/* Footer */
+.footer-links {
+  margin-top: 30px;
+  font-size: clamp(12px, 3vw, 13px);
+  color: #555;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #000;
+}
+.footer-links span {
+  color: #777;
+}
+
+/* 🔹 Responsif tambahan */
+@media (max-width: 480px) {
+  .container {
+    margin: 10px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .top-icons {
+    gap: 8px;
+  }
+  .socials a {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  .card {
+    font-size: 14px;
+  }
+}
