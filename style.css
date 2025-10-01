@@ -1,3 +1,8 @@
+:root {
+  color-scheme: light only;
+}
+
+
 body {
   font-family: 'Unbounded', sans-serif;
   background: #f3f4f6;
@@ -249,3 +254,5 @@ h1 {
     font-size: 14px;
   }
 }
+
+
