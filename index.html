@@ -15,11 +15,21 @@
 
   <!-- Top Icons -->
 <div class="top-icons">
+  
   <!-- Register Button -->
-  <button id="registerBtn" class="register-btn">Register</button>
+<button id="registerBtn" class="register-btn">Register</button>
+
+<script>
+  const btn = document.getElementById("registerBtn");
+  btn.onclick = () => {
+    window.location.href = "https://boothlab.id/register";
+  };
+</script>
+
   
   <!-- Share Icon -->
-  <a href="#"><i class="fa-solid fa-share-from-square"></i></a>
+<a href="#"><i class="fa-solid fa-share"></i></a>
+
 </div>
 
 
@@ -45,18 +55,21 @@
       Boothlab is a desktop and web-based middleware platform designed to automate the operations of self-service photobooths.
     </p>
 
+  
     <!-- 4. Package Cards -->
-    <div class="packages">
-      <a href="https://boothlab.id/pricing" class="card">
-        <h3>Boothlab Photo</h3>
-      </a>
-      <a href="https://boothlab.id/pricing" class="card">
-        <h3>Boothlab Paywall</h3>
-      </a>
-      <a href="https://boothlab.id/pricing" class="card">
-        <h3>All in One Photo Solution</h3>
-      </a>
-    </div>
+<h2 class="package-label">Boothlab Package Option</h2>
+<div class="packages">
+  <a href="https://boothlab.id/pricing" class="card">
+    <h3>Boothlab Photo</h3>
+  </a>
+  <a href="https://boothlab.id/pricing" class="card">
+    <h3>Boothlab Paywall</h3>
+  </a>
+  <a href="https://boothlab.id/pricing" class="card">
+    <h3>All in One Photo Solution</h3>
+  </a>
+</div>
+
 
     <!-- 5. Video -->
     <div class="video">
@@ -82,11 +95,7 @@
 
   <!-- 9. Footer Links -->
   <div class="footer-links">
-    <a href="#">Cookie Preferences</a>
-    <span>·</span>
-    <a href="#">Report</a>
-    <span>·</span>
-    <a href="#">Privacy</a>
+    <a href="#">All Rights Reserved Boothlab.id</a>
   </div>
 
   </main>
@@ -127,6 +136,8 @@
     }
     lastScrollY = window.scrollY;
   });
+
+
 </script>
 
 
