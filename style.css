@@ -2,6 +2,21 @@
   color-scheme: light only;
 }
 
+/* Paksa tema terang */
+@media (prefers-color-scheme: dark) {
+  body, html {
+    background: #f3f4f6 !important;
+    color: #111 !important;
+  }
+  .container {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  a, p, h1, h2, h3, button {
+    color: #111 !important;
+  }
+}
+
 
 body {
   font-family: 'Unbounded', sans-serif;
