@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boothlab Link Page</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Tambahkan favicon -->
+  <link rel="icon" type="image/png" href="assets/iconbl.webp">
   <!-- Font Awesome buat ikon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Google Font Unbounded -->
@@ -45,9 +47,9 @@
 
     <!-- 2. Sosmed -->
     <div class="socials">
-      <a href="https://youtube.com/" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
-      <a href="https://tiktok.com/" target="_blank" class="tt"><i class="fab fa-tiktok"></i></a>
-      <a href="https://wa.me/628123456789" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.youtube.com/@boothlab_id" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@boothlab.id?_t=ZS-90BOzq0XXBY&_r=1" target="_blank" class="tt"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/6289516042702" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
     </div>
 
     <!-- 3. Pengenalan -->
@@ -55,7 +57,18 @@
       Boothlab is a desktop and web-based middleware platform designed to automate the operations of self-service photobooths.
     </p>
 
-  
+    
+    <!-- 🖼️ Slideshow Gambar -->
+    <div class="slideshow-container">
+      <div class="slide"><img src="assets/slide1.gif" alt="Boothlab Slide 1"></div>
+      <div class="slide"><img src="assets/slide2.jpg" alt="Boothlab Slide 2"></div>
+      <div class="slide"><img src="assets/slide3.jpg" alt="Boothlab Slide 3"></div>
+      <div class="slide"><img src="assets/slide4.gif" alt="Boothlab Slide 4"></div>
+      <div class="slide"><img src="assets/slide5.gif" alt="Boothlab Slide 5"></div>
+      <div class="slide"><img src="assets/slide6.gif" alt="Boothlab Slide 6"></div>
+    </div>
+
+
     <!-- 4. Package Cards -->
 <h2 class="package-label">Boothlab Package Option</h2>
 <div class="packages">
@@ -73,6 +86,7 @@
 
     <!-- 5. Video -->
     <div class="video">
+      <h2 class="video-label">Video Demo Boothlab 3.0</h2>
       <iframe 
         width="100%" 
         height="215" 
@@ -85,10 +99,10 @@
 
 
     <!-- 6. Profile Document -->
-    <a href="https://drive.google.com/your-doc-link" class="btn">📄 Profile Document</a>
+    <a href="https://drive.google.com/file/d/1aA4yz6aoH7DDP6610Mf-dXqyIJfJSkpI/view?usp=sharing" class="btn">📄 Profile Document</a>
 
     <!-- 7. WhatsApp Admin -->
-    <a href="https://wa.me/6289516042702?text=Halo%20Admin%20Boothlab" class="btn">💬 WhatsApp Admin </a>
+    <a href="https://wa.me/6289516042702" class="btn">💬 WhatsApp Admin </a>
 
     <!-- 8. Official Website -->
   <a href="https://boothlab.id" class="btn-website">🌐 Boothlab Official Website</a>
@@ -139,6 +153,79 @@
 
 
 </script>
+
+<script>
+// Semua <a> yang punya href akan otomatis buka di tab baru
+document.querySelectorAll('a[href]').forEach(link => {
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer'); // aman dari tab hijacking
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".slideshow-container");
+  const originalSlides = Array.from(document.querySelectorAll(".slide"));
+
+  // buat wrapper dan pindahkan slide ke dalamnya
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("slides-wrapper");
+  originalSlides.forEach(slide => wrapper.appendChild(slide));
+
+  // clone slide pertama lalu masukkan ke akhir => 1..6 + 1(clone)
+  const firstClone = originalSlides[0].cloneNode(true);
+  wrapper.appendChild(firstClone);
+
+  // masukkan wrapper ke container
+  container.appendChild(wrapper);
+
+  // total termasuk clone
+  const totalSlides = originalSlides.length + 1;
+
+  // atur lebar wrapper secara dinamis (tidak merusak CSS-mu)
+  wrapper.style.width = `${totalSlides * 100}%`;
+
+  // pastikan setiap .slide punya flex-basis sehingga tiap slide = 1 layar penuh
+  const slidesInWrapper = wrapper.querySelectorAll('.slide');
+  slidesInWrapper.forEach(slide => {
+    slide.style.flex = `0 0 ${100 / totalSlides}%`;
+  });
+
+  // setup animasi
+  let index = 0;
+  const transitionDuration = 1000; // ms (samakan dengan css transition: 1s)
+  // pastikan wrapper punya transition (jika di CSS tidak ada)
+  wrapper.style.transition = `transform ${transitionDuration}ms ease-in-out`;
+  wrapper.style.transform = 'translateX(0)';
+
+  function showNext() {
+    index++;
+    // Geser ke slide berikutnya (termasuk clone di akhir)
+    wrapper.style.transition = `transform ${transitionDuration}ms ease-in-out`;
+    wrapper.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
+
+    // Jika sampai di posisi clone (index === totalSlides - 1), setelah animasi selesai
+    // kita reset tanpa animasi kembali ke posisi awal (slide 1 asli)
+    if (index === totalSlides - 1) {
+      setTimeout(() => {
+        // matikan transition dan reset ke awal
+        wrapper.style.transition = 'none';
+        wrapper.style.transform = 'translateX(0)';
+        index = 0;
+        // beri sedikit delay agar transition berikutnya berjalan normal
+        // (setTimeout 20ms memastikan browser mendaftarkan perubahan transition = none)
+        setTimeout(() => {
+          wrapper.style.transition = `transform ${transitionDuration}ms ease-in-out`;
+        }, 20);
+      }, transitionDuration);
+    }
+  }
+
+  // mulai loop: ganti tiap 8 detik
+  setInterval(showNext, 8000);
+});
+</script>
+
 
 
 

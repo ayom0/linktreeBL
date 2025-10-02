@@ -201,6 +201,13 @@ h1 {
   border-radius: 12px;
   overflow: hidden;
 }
+.video-label {
+  font-size: clamp(16px, 4vw, 20px); /* tetap responsif */
+  font-weight: 580;
+  margin: 10px 0 12px;
+  color: #111;
+  text-align: center;
+}
 .video iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -293,3 +300,35 @@ h1 {
 }
 
 
+.slideshow-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 30px 0;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+/* Pastikan setiap slide selebar container */
+.slide {
+  flex: 0 0 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* Responsif */
+@media (max-width: 480px) {
+  .slideshow-container {
+    border-radius: 0px;
+  }
+}
