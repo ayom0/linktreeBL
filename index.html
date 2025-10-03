@@ -17,22 +17,30 @@
 
   <!-- Top Icons -->
 <div class="top-icons">
-  
   <!-- Register Button -->
-<button id="registerBtn" class="register-btn">Register</button>
+  <button id="registerBtn" class="register-btn">Register</button>
+
+  <!-- Share Icon -->
+  <a href="#"><i class="fa-solid fa-share"></i></a>
+</div>
 
 <script>
   const btn = document.getElementById("registerBtn");
   btn.onclick = () => {
-    window.location.href = "https://boothlab.id/register";
+    window.open("https://boothlab.id/register", "_blank");
   };
+
+  const topIcons = document.querySelector('.top-icons');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      topIcons.classList.add('shadow');
+    } else {
+      topIcons.classList.remove('shadow');
+    }
+  });
 </script>
 
-  
-  <!-- Share Icon -->
-<a href="#"><i class="fa-solid fa-share"></i></a>
-
-</div>
 
 
 
@@ -72,13 +80,13 @@
     <!-- 4. Package Cards -->
 <h2 class="package-label">Boothlab Package Option</h2>
 <div class="packages">
-  <a href="https://boothlab.id/pricing" class="card">
+  <a href="https://boothlab.id/pricing#photo" class="card">
     <h3>Boothlab Photo</h3>
   </a>
-  <a href="https://boothlab.id/pricing" class="card">
+  <a href="https://boothlab.id/pricing#paywall" class="card">
     <h3>Boothlab Paywall</h3>
   </a>
-  <a href="https://boothlab.id/pricing" class="card">
+  <a href="https://boothlab.id/pricing#allinone" class="card">
     <h3>All in One Photo Solution</h3>
   </a>
 </div>
@@ -99,10 +107,11 @@
 
 
     <!-- 6. Profile Document -->
-    <a href="https://drive.google.com/file/d/1aA4yz6aoH7DDP6610Mf-dXqyIJfJSkpI/view?usp=sharing" class="btn">📄 Profile Document</a>
+<a href="https://drive.google.com/file/d/1aA4yz6aoH7DDP6610Mf-dXqyIJfJSkpI/view?usp=sharing" class="btn">📄 Profile Document</a>
 
-    <!-- 7. WhatsApp Admin -->
-    <a href="https://wa.me/6289516042702" class="btn">💬 WhatsApp Admin </a>
+<!-- 7. WhatsApp Admin -->
+<a href="https://wa.me/6289516042702" class="btn btn-wa">💬 WhatsApp Admin</a>
+
 
     <!-- 8. Official Website -->
   <a href="https://boothlab.id" class="btn-website">🌐 Boothlab Official Website</a>
@@ -113,46 +122,33 @@
   </div>
 
   </main>
-  <script>
-  const modal = document.getElementById("registerModal");
-  const btn = document.getElementById("registerBtn");
-  const closeBtn = document.querySelector(".modal .close");
 
-  btn.onclick = () => {
-    modal.style.display = "flex";
-  };
+<!-- Modal Share -->
+<div class="share-modal" id="shareModal">
+  <div class="share-content">
+    <span class="close">&times;</span>
 
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-
-  window.onclick = (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  };
+    <!-- Nama Proyek -->
+    <h2 class="share-title">Share Boothlab Linkpage</h2>
+    
+    <!-- Card Gambar -->
+    <div class="share-card">
+      <img src="assets/Background Linktri.png" alt="Project Card">
+    </div>
 
 
+    <!-- Ikon Sosial Media -->
+    <div class="social-icons">
+      <!-- Tombol Copy sebagai ikon -->
+  <button id="copyBtn" class="copy-icon">
+    <i class="fa-solid fa-link"></i>
+  </button>
+          <a href="https://wa.me/6289516042702" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
-  //animasi top icons
-  let lastScrollY = window.scrollY;
-  const topIcons = document.querySelector(".top-icons");
+  </div>
+</div>
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > lastScrollY) {
-      // Scroll ke bawah → sembunyikan
-      topIcons.classList.add("hide");
-      topIcons.classList.remove("show");
-    } else {
-      // Scroll ke atas → munculkan
-      topIcons.classList.add("show");
-      topIcons.classList.remove("hide");
-    }
-    lastScrollY = window.scrollY;
-  });
-
-
-</script>
 
 <script>
 // Semua <a> yang punya href akan otomatis buka di tab baru
@@ -224,6 +220,45 @@ document.addEventListener("DOMContentLoaded", () => {
   // mulai loop: ganti tiap 8 detik
   setInterval(showNext, 8000);
 });
+</script>
+
+<script>
+  const shareModal = document.getElementById("shareModal");
+const shareBtn = document.querySelector(".top-icons a"); // tombol share
+const closeShare = document.querySelector(".share-modal .close"); // tombol X
+
+// Buka modal saat klik ikon share
+shareBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  shareModal.style.display = "flex";
+});
+
+// Tutup modal saat klik tombol X
+closeShare.addEventListener("click", () => {
+  shareModal.style.display = "none";
+});
+
+// Tutup modal saat klik di luar konten
+window.addEventListener("click", (e) => {
+  if (e.target === shareModal) {
+    shareModal.style.display = "none";
+  }
+});
+
+// Copy link saat tombol copy diklik
+const copyBtn = document.getElementById("copyBtn");
+copyBtn.addEventListener("click", () => {
+  // ambil URL halaman saat ini
+  const currentUrl = window.location.href;
+
+  navigator.clipboard.writeText(currentUrl).then(() => {
+    alert("Link berhasil disalin 📋");
+  }).catch(err => {
+    alert("Gagal menyalin link: " + err);
+  });
+});
+
+
 </script>
 
 
